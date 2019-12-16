@@ -1,4 +1,4 @@
-<div>
+<div style="height: 70vh;">
   <mat-toolbar color="primary">
     <div fxShow="true" fxHide.gt-sm="true">
       <a href="#" (click)="sidenav.toggle()" class="nav-button"><i class="material-icons">
@@ -20,7 +20,7 @@
   </mat-toolbar>
 
   <mat-sidenav-container fxFlexFill class="example-container">
-    <mat-sidenav #sidenav >
+    <mat-sidenav #sidenav fxLayout="column">
       <div fxLayout="column">
         <!-- <a (click)="sidenav.toggle()" href="#" mat-button>Close</a> -->
         <a href="#" mat-button>Login</a>

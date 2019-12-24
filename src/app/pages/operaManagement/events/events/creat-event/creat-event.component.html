@@ -1,1 +1,45 @@
-<p>creat-event works!</p>
+<mat-card class="head-card">
+<form [formGroup]="form" class="example-form">
+    <div class="row">
+        <div class="col-lg">
+            <mat-form-field appearance="outline" class="form-input">
+            <mat-label style='color:black;'>Event Name</mat-label>
+            <input matInput type="text" formControlName="eventName">
+            <mat-error *ngIf=" form.get('eventName').invalid">user name is invalid
+            </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-lg">
+            <mat-form-field appearance="outline" (click)="picker.open()" (focus)="picker.open()" class="form-input">
+            <mat-label style='color:black;'>Date</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="eventTiming"
+                (focus)="picker.open()" (keydown)="onCalendarKeydown($event)">
+            <mat-error *ngIf="!picker">You must choose a Date</mat-error>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #picker disabled="false"></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <mat-form-field class="form-input">
+            <mat-label style='color:black;'>Event Description</mat-label>
+            <textarea matInput placeholder="Leave a comment">{{eventDescription}}</textarea>
+            <mat-error *ngIf=" form.get('eventDescription').invalid">user name is invalid
+            </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-lg">
+            <mat-form-field appearance="outline" class="form-input">
+            <mat-label style='color:black;'>Hall</mat-label>
+            <mat-select matInput formControlName="hallNumber" disableOptionCentering panelClass="select-margin">
+                <mat-option >None</mat-option>
+                <mat-option  value="1">1</mat-option>
+                <mat-option  value="2">2</mat-option>
+            </mat-select>
+            <mat-error *ngIf=" form.get('hallNumber').invalid">You must choose a gender</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+</form>
+</mat-card>

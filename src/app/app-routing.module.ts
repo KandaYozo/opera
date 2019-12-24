@@ -7,6 +7,7 @@ import { SignupComponent } from '../app/pages/signup/signup.component';
 import { AdminComponent } from '../app/pages/admin/admin.component';
 import { ProfileComponent } from '../app/pages/profile/profile.component';
 import { EventsComponent } from '../app/pages/operaManagement/events/events/events.component';
+import { CreatEventComponent } from '../app/pages/operaManagement/events/events/creat-event/creat-event.component';
 
 const routes: Routes = [
   { path: 'contact', component: ContactComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'events', component: EventsComponent },
+  { path: 'events/createevent', component: CreatEventComponent },
   { path: '', component: HomeComponent },
 ];
 

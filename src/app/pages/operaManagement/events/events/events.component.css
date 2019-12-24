@@ -1,0 +1,17 @@
+.nav-pages {
+    height: 99%;
+    width: 99%;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    font-size: 250%;
+    background-image: url('../../../../../assets/images/buttons.jpg');
+}
+
+.head-card {
+    height: 100%;
+    width: 100%;
+    margin-top: 15px;
+    background-color: bisque;
+    background-image: url('../../../../../assets/images/backgtound.jpg');
+}

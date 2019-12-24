@@ -1,0 +1,65 @@
+<mat-card style="background-image: url('../../../assets/images/bodyback.jpg');">
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef> first Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef> last Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="userName">
+      <th mat-header-cell *matHeaderCellDef> user Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="birthDate">
+      <th mat-header-cell *matHeaderCellDef> birth Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.birthDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="userStatus">
+      <th mat-header-cell *matHeaderCellDef> user Status </th>
+      <td mat-cell *matCellDef="let element" [ngSwitch]="element.userStatus">
+        <p *ngSwitchCase='1'>authorized</p>
+        <p *ngSwitchCase='2'>waiting for auth </p>
+        <p *ngSwitchCase='3'> pending </p>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="choice">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+      <div class="admin-choice">
+        <button mat-stroked-button>Approve Authority</button>
+        <button mat-stroked-button style="margin-right: 10px; margin-left:10px">Remove</button>
+        <mat-radio-group [(ngModel)]="labelPosition">
+            <mat-radio-button class="example-margin" value='1' style="margin-right: 10px; margin-left:10px" checked>1</mat-radio-button>
+            <mat-radio-button class="example-margin" value='2' style="margin-right: 10px; margin-left:10px">2</mat-radio-button>
+            <mat-radio-button class="example-margin" value='3' style="margin-right: 10px; margin-left:10px">3</mat-radio-button>
+        </mat-radio-group>
+        <button mat-stroked-button style="margin-right: 10px; margin-left:10px">Change Authority</button>
+      </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[15, 20, 30]" showFirstLastButtons></mat-paginator>
+</div>
+</mat-card>

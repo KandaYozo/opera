@@ -23,6 +23,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import {SlideshowModule} from 'ng-simple-slideshow';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SignupComponent } from './pages/signup/signup.component';
     PopcomComponent,
     LoginComponent,
     SignupComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

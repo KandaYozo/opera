@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { PopcomComponent } from './pages/popup/popcom/popcom.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import {SlideshowModule} from 'ng-simple-slideshow';
 import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { LoginComponent } from './pages/login/login.component';
     ContactComponent,
     PopcomComponent,
     LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { LoginComponent } from './pages/login/login.component';
     MaterialModule,
     NgImageSliderModule,
     SlideshowModule,
+    HttpClientModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [],

@@ -1,0 +1,121 @@
+<mat-card class="form-container card-border" style="margin-bottom: 50px;">
+  <div class="form-logo"></div>
+
+  <form [formGroup]="form" (submit)="signup()" [hidden]="isLoading" dir="'ltr'">
+
+    <div class="form-design">
+      <p > Sign Up </p>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label >First Name</mat-label>
+      <input matInput type="text" formControlName="firstName">
+      <mat-error *ngIf=" form.get('firstName').invalid">Please enter your first name with only letters
+      </mat-error>
+      <mat-icon matSuffix>account_circle</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label >Last Name</mat-label>
+      <input matInput formControlName="lastName">
+      <mat-error *ngIf=" form.get('lastName').invalid">Please enter your last name with only letters
+      </mat-error>
+      <mat-icon matSuffix>account_box</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label >User Name</mat-label>
+      <input matInput type="text" formControlName="username">
+      <mat-error *ngIf=" form.get('username').invalid">user name is invalid
+      </mat-error>
+      <mat-icon matSuffix>account_circle</mat-icon>
+    </mat-form-field>
+
+    <!--<mat-form-field appearance="outline" (click)="picker.open()" (focus)="picker.open()">
+      <mat-label >Date of Birth</mat-label>
+      <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="dateOfBirth"
+        (focus)="picker.open()" (keydown)="onCalendarKeydown($event)">
+      <mat-error *ngIf="!picker">You must choose a D.O.B</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker touchUi #picker disabled="false"></mat-datepicker>
+    </mat-form-field>-->
+
+    <mat-form-field appearance="outline">
+      <mat-label >Email</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf=" form.get('email').invalid">Not a valid Email Format</mat-error>
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label >Password</mat-label>
+      <input [type]="hide ? 'password' : 'text'" matInput formControlName="password" minlength="8">
+      <mat-error *ngIf=" form.get('password').invalid">Minimum 8 characters</mat-error>
+      <mat-icon mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide" class="cursor-pointer">{{hide ? 'visibility_off' : 'visibility'}}
+      </mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label >Gender</mat-label>
+      <mat-select matInput formControlName="gender" disableOptionCentering panelClass="select-margin">
+        <mat-option >None</mat-option>
+        <mat-option  value="Female">Female</mat-option>
+        <mat-option  value="Male">Male</mat-option>
+      </mat-select>
+      <mat-error *ngIf=" form.get('gender').invalid">You must choose a gender</mat-error>
+    </mat-form-field>
+
+    <!--<mat-form-field appearance="outline">
+      <mat-label >Contact Number</mat-label>
+      <input matInput type="tel" formControlName="contactNumber" [maxLength]="11" (keydown)="onKeydown($event)">
+      <mat-error *ngIf=" form.get('contactNumber').invalid">Please enter your contact number</mat-error>
+      <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field> -->
+
+    <mat-form-field appearance="outline">
+      <mat-label >Country</mat-label>
+      <mat-select matInput formControlName="country" (selectionChange)="onChangeCountry(selectedCountryIndex)"
+        [(value)]="selectedCountryIndex" (selectionChange)="onChangeState(selectedStateIndex)"
+        (selectionChange)="onChangeCity(selectedCityIndex)" disableOptionCentering panelClass="select-margin">
+        <mat-option *ngFor="let country of countryArray, let i = index" value="{{i}}">
+          {{country?.CountryName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label >State</mat-label>
+      <mat-select matInput formControlName="state" (selectionChange)="onChangeState(selectedStateIndex)"
+        (selectionChange)="onChangeCity(selectedCityIndex)" [(value)]="selectedStateIndex" disableOptionCentering
+        panelClass="select-margin">
+        <mat-option *ngIf="!stateArray" value="-1">None</mat-option>
+        <mat-option *ngFor="let state of stateArray, let j = index" value={{j}}>{{state?.StateName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label >City</mat-label>
+      <mat-select matInput formControlName="city" (selectionChange)="onChangeCity(selectedCityIndex)"
+        [(value)]="selectedCityIndex" disableOptionCentering panelClass="select-margin">
+        <mat-option *ngIf="!cityArray" value="-1">None</mat-option>
+        <mat-option *ngFor="let city of cityArray, let k = index" value="{{k}}">{{city}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!--<mat-form-field appearance="outline">
+      <mat-label >Street</mat-label>
+      <input matInput formControlName="street">
+      <mat-icon matSuffix></mat-icon>
+    </mat-form-field>-->
+
+
+    <div class="form-controls row">
+      <div class="col">
+        <a [routerLink]="['/']" > Already a member? </a>
+      </div>
+      <div class="col button-container">
+        <button mat-stroked-button color="primary"  class="float-right"> Sign Up </button>
+      </div>
+    </div>
+  </form>
+</mat-card>

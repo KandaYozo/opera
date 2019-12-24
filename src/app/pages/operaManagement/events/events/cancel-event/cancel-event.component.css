@@ -1,0 +1,17 @@
+.head-card {
+    height: 100%;
+    width: 100%;
+    color: white;
+    margin-top: 50px;
+    background-color: bisque;
+    background-image: url('../../../../../../assets/images/backgtound.jpg');
+    margin-bottom: 50px;
+}
+
+table {
+    width: 100%;
+}
+
+.admin-choice {
+    display: inline;
+}

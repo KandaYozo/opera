@@ -27,6 +27,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EventsComponent } from './pages/operaManagement/events/events/events.component';
 import { CreatEventComponent } from './pages/operaManagement/events/events/creat-event/creat-event.component';
+import { CancelEventComponent } from './pages/operaManagement/events/events/cancel-event/cancel-event.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { CreatEventComponent } from './pages/operaManagement/events/events/creat
     ProfileComponent,
     EventsComponent,
     CreatEventComponent,
+    CancelEventComponent,
   ],
   imports: [
     BrowserModule,

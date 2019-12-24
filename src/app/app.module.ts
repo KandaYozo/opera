@@ -24,6 +24,7 @@ import {SlideshowModule} from 'ng-simple-slideshow';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AdminComponent } from './pages/admin/admin.component';
     LoginComponent,
     SignupComponent,
     AdminComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

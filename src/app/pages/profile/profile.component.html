@@ -1,0 +1,122 @@
+<mat-card class="profile-card">
+<h2 style="background-color: burlywood;">Profile</h2>
+<hr>
+<img src='../../../assets/images/profile1.jpg' alt="Avatar">
+<hr>    
+<div class="container user-info">
+    <div class="row">
+        <div class="col-lg">
+            <p>First Name: <span class="personal-info">Mustafa</span></p>
+        </div>
+        <div class="col-lg">
+            <p>Last Name: <span class="personal-info">Mufeed</span></p>   
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <p>User Name: <span class="personal-info">Kanda</span></p>
+        </div>
+        <div class="col-lg">
+            <p>City: <span class="personal-info">Cairo</span></p>   
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-lg">
+            <p>Email: <span class="personal-info">m.mufeed1996@gamail.com</span></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <p>Date Of Birth: <span class="personal-info">12/5/2019</span></p>
+        </div>
+    </div>
+</div>
+</mat-card>
+
+<mat-card class="update-card">
+<h4>Update Profile</h4>
+<p>Please update any desired data and click on update to confirm</p>
+<br>
+
+<form [formGroup]="form" class="example-form">
+<div class="row">
+    <div class="col-lg">
+      <mat-form-field  class="example-full-width">
+            <mat-label >First Name</mat-label>
+            <input matInput  type="text" formControlName="firstName">
+            <mat-error *ngIf=" form.get('firstName').invalid">Please enter your first name with only letters
+            </mat-error>
+            <mat-icon matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+    </div>
+    <div class="col-lg">
+      <mat-form-field class="example-full-width">
+        <mat-label >Last Name</mat-label>
+        <input matInput formControlName="lastName">
+        <mat-error *ngIf=" form.get('lastName').invalid">Please enter your last name with only letters
+        </mat-error>
+        <mat-icon matSuffix>account_box</mat-icon>
+        </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg">
+        <mat-form-field class="example-full-width">
+        <mat-label >Password</mat-label>
+        <input [type]="hide ? 'password' : 'text'" matInput formControlName="password" minlength="8">
+        <mat-error *ngIf=" form.get('password').invalid">Minimum 8 characters</mat-error>
+        <mat-icon mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide" class="cursor-pointer">{{hide ? 'visibility_off' : 'visibility'}}
+        </mat-icon>
+        </mat-form-field>
+    </div>
+    <div class="col-lg">
+      <mat-form-field class="example-full-width">
+      <mat-label >Gender</mat-label>
+      <mat-select matInput formControlName="gender" disableOptionCentering panelClass="select-margin">
+        <mat-option >None</mat-option>
+        <mat-option  value="Female">Female</mat-option>
+        <mat-option  value="Male">Male</mat-option>
+      </mat-select>
+      <mat-error *ngIf=" form.get('gender').invalid">You must choose a gender</mat-error>
+    </mat-form-field>
+    </div>
+  </div>
+
+   <div class="row">
+        <div class="col-sm">
+                <mat-form-field appearance="outline">
+            <mat-label >Country</mat-label>
+            <mat-select matInput formControlName="country" (selectionChange)="onChangeCountry(selectedCountryIndex)"
+                [(value)]="selectedCountryIndex" (selectionChange)="onChangeState(selectedStateIndex)"
+                (selectionChange)="onChangeCity(selectedCityIndex)" disableOptionCentering panelClass="select-margin">
+                <mat-option *ngFor="let country of countryArray, let i = index" value="{{i}}">
+                {{country?.CountryName}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-sm">
+            <mat-form-field appearance="outline">
+            <mat-label >State</mat-label>
+            <mat-select matInput formControlName="state" (selectionChange)="onChangeState(selectedStateIndex)"
+                (selectionChange)="onChangeCity(selectedCityIndex)" [(value)]="selectedStateIndex" disableOptionCentering
+                panelClass="select-margin">
+                <mat-option *ngIf="!stateArray" value="-1">None</mat-option>
+                <mat-option *ngFor="let state of stateArray, let j = index" value={{j}}>{{state?.StateName}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-sm">
+                <mat-form-field appearance="outline">
+            <mat-label >City</mat-label>
+            <mat-select matInput formControlName="city" (selectionChange)="onChangeCity(selectedCityIndex)"
+                [(value)]="selectedCityIndex" disableOptionCentering panelClass="select-margin">
+                <mat-option *ngIf="!cityArray" value="-1">None</mat-option>
+                <mat-option *ngFor="let city of cityArray, let k = index" value="{{k}}">{{city}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <button mat-stroked-button color="primary" > Update </button>
+</form>
+</mat-card>

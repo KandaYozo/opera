@@ -25,7 +25,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {firstName: 'Magnesium', lastName: 'Magnesium', 	userName: 'Magnesium', 	birthDate: 'Magnesium', email: 'Magnesium', 	userStatus: 1 	},
   {firstName: 'Aluminum', lastName: 'Aluminum', 		userName: 'Aluminum', 	birthDate: 'Aluminum', 	email: 'Aluminum', 		userStatus: 2  	},
   {firstName: 'Silicon', lastName: 'Silicon', 		userName: 'Silicon', 	birthDate: 'Silicon', 	email: 'Silicon', 		userStatus: 1 	},
-  {firstName: 'Phosphorus', lastName: 'Phosphorus',	userName: 'Phosphorus', birthDate: 'Phosphorus',email: 'Phosphorus', 	userStatus: 2  	},
+  {firstName: 'Phosphorus', lastName: 'Phosphorus',	userName: 'Phosphorus', birthDate: 'Phosphorus', email: 'Phosphorus', 	userStatus: 2  },
   {firstName: 'Sulfur', 	lastName: 'Sulfur', 		userName: 'Sulfur', 	birthDate: 'Sulfur', 	email: 'Sulfur', 		userStatus: 3 	},
   {firstName: 'Chlorine', lastName: 'Chlorine', 		userName: 'Chlorine', 	birthDate: 'Chlorine', 	email: 'Chlorine', 		userStatus: 1 	},
   {firstName: 'Argon', 	lastName: 'Argon', 			userName: 'Argon', 		birthDate: 'Argon', 	email: 'Argon', 		userStatus: 2 	},

@@ -1,0 +1,41 @@
+.example-form {
+    min-width: 150px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+img {
+    margin-top: 10px;
+    border-radius: 50%;
+}
+
+.profile-card {
+    font-family: bold;
+    color: white;
+    margin-left: 5%;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 90%;
+    background-image: url('../../../assets/images/backgtound.jpg');
+}
+
+.update-card {
+    margin-left: 5%;
+    margin-bottom: 50px;
+    width: 90%;
+}
+
+.user-info {
+    margin-top: 15px;
+    font-size: xx-large;
+    background-color: black;
+}
+
+.personal-info {
+    color: darksalmon;
+}

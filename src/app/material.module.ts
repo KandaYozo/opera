@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-
 import {
   MatButtonModule,
   MatMenuModule,
@@ -13,6 +12,7 @@ import {
   MatSelectModule,
   MatInputModule,
   MatGridListModule,
+  MatSnackBarModule,
 } from '@angular/material';
 
 @NgModule({
@@ -29,6 +29,7 @@ import {
     FormsModule,
     MatGridListModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatButtonModule,
@@ -43,6 +44,7 @@ import {
     FormsModule,
     MatGridListModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
   ]
 })
 export class MaterialModule {}

@@ -20,6 +20,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { PopcomComponent } from './pages/popup/popcom/popcom.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import {SlideshowModule} from 'ng-simple-slideshow';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {SlideshowModule} from 'ng-simple-slideshow';
     HomeComponent,
     ContactComponent,
     PopcomComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

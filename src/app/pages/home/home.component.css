@@ -1,0 +1,27 @@
+.head-card {
+    margin-top: 5px;
+    background-color: bisque;
+    background-image: url('../../../assets/images/backgtound.jpg');
+}
+
+mat-grid-tile {
+    background: burlywood;
+}
+
+.nav-pages {
+    height: 99%;
+    width: 99%;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    font-size: 250%;
+    background-image: url('../../../assets/images/buttons.jpg');
+}
+
+.page-head {
+    background-image: url('../../../assets/images/bodyback.jpg');
+}
+
+.space {
+    margin: 10px 10px 10px 10px;
+}

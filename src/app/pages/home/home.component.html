@@ -1,0 +1,20 @@
+<mat-card class="page-head"> 
+<mat-card class="head-card">
+    <slideshow [height]="height"
+            [minHeight]="'525px'"
+            [autoPlay]="true"
+            [showArrows]="false"
+            [imageUrls]="imageUrls"
+            [lazyLoad]="imageUrls?.length > 1"
+            [autoPlayWaitForLazyLoad]="true">
+    </slideshow>
+</mat-card>
+<mat-card class="head-card" style="margin-top:15px">
+    <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile><button mat-stroked-button class="nav-pages"><p style="background-color: coral;">View Events<p></button></mat-grid-tile>
+    <mat-grid-tile><button mat-stroked-button class="nav-pages"><p style="background-color: coral;">View Events<p></button></mat-grid-tile>
+    <mat-grid-tile><button mat-stroked-button class="nav-pages"><p style="background-color: coral;">View Events<p></button></mat-grid-tile>
+    <mat-grid-tile><button mat-stroked-button class="nav-pages"><p style="background-color: coral;">View Events<p></button></mat-grid-tile>
+    </mat-grid-list>
+</mat-card>
+</mat-card>

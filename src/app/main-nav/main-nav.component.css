@@ -1,9 +1,19 @@
-.nav-button{
-  color: white;
+.nav-button {
+    color: white;
 }
-.page-title{
-  margin-left: 5px;
+
+.page-title {
+    margin-left: 5px;
 }
+
 .spacer {
-  flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.navigation-margin {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
 }

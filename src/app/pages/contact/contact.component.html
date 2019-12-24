@@ -1,0 +1,48 @@
+<div class="row">
+    <mat-card class="history-card">
+        <h5 class="headers">
+            Customer Services:
+        </h5>
+        <br>
+        <p>Information: 27390132 - 27390188</p>
+        <p>Ticketing Office: 27390299</p>
+        <p>Public Relations: 27370592</p>
+        <p>Marketing Department: 27390265</p>
+        <p style="font-weight: bold;">Fax: 27370599</p>
+        <br>
+        <br>
+        <h5 class="headers">
+            Cairo Opera House:
+        </h5>
+        <br>
+        <p>Address: El Borg Gezira, Cairo, Egypt</p>
+        <p>P.O Box: 11567 EL Borg Gezira, Cairo, Egyp</p>
+        <p>Email: <a>info@cairoopera.org</a></p>
+        <p>Operator: 27370602 - 27390188</p>
+        <p>FAX: 27370599 - 27390199 - 27390199</p>
+    </mat-card>
+    <mat-card class="history-card">
+        <h5 class="headers">
+            Send Message To Opera House:
+        </h5>
+        <br>
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <div class="example-container">
+                <mat-form-field>
+                    <input matInput placeholder="Enter your email" [formControl]="email" required>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input matInput [formControl]="title" placeholder="Title" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <textarea matInput [formControl]="subject" placeholder="Subject" required></textarea>
+                </mat-form-field>
+            </div>
+        </form>
+        <br>
+        <button mat-button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </mat-card>
+</div>

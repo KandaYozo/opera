@@ -17,6 +17,7 @@ export class MainNavComponent  implements OnInit  {
   logout() {
     localStorage.clear();
     this.router.navigate(['/']);
+    location.reload();
   }
 
 }

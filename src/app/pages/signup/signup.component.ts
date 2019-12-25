@@ -124,7 +124,7 @@ export class SignupComponent implements OnInit, OnDestroy {
         this.form.get('username').value,
         this.form.get('dateOfBirth').value,
         this.form.get('gender').value,
-        this.form.get('city').value,
+        this.cityArray[this.form.get('city').value],
         null,
         this.form.get('password').value,
         this.form.get('email').value,

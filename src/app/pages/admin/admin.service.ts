@@ -11,5 +11,12 @@ export class AdminServices {
     getAllUsers() {
         return this.http
           .post<UsersData[]>('http://localhost:3000/user/getAll', null).toPromise();
-      }
+    }
+    verifyUser(id: string) {
+      const obj = {
+        id
+      };
+      return this.http
+          .post<any>('http://localhost:3000/user/verify', obj).toPromise();
+    }
 }

@@ -42,4 +42,20 @@ export class AdminComponent implements OnInit {
       }
     );
   }
+  Verify(row) {
+    console.log(row.id);
+    this.adminServices.verifyUser(row.id.toString()).then(
+      (verifyResponse: any) => {
+        if (verifyResponse[0].response === 1) {
+          alert('Verified Successfully');
+          location.reload();
+        } else {
+          alert('Failed To Verify User');
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 }

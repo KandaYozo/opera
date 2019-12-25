@@ -6,28 +6,28 @@
 <div class="container user-info">
     <div class="row">
         <div class="col-lg">
-            <p>First Name: <span class="personal-info">Mustafa</span></p>
+            <p>First Name: <span class="personal-info">{{firstName}}</span></p>
         </div>
         <div class="col-lg">
-            <p>Last Name: <span class="personal-info">Mufeed</span></p>   
+            <p>Last Name: <span class="personal-info">{{lastName}}</span></p>   
         </div>
     </div>
     <div class="row">
         <div class="col-lg">
-            <p>User Name: <span class="personal-info">Kanda</span></p>
+            <p>User Name: <span class="personal-info">{{userName}}</span></p>
         </div>
         <div class="col-lg">
-            <p>City: <span class="personal-info">Cairo</span></p>   
+            <p>City: <span class="personal-info">{{city}}</span></p>   
         </div>
     </div>
      <div class="row">
         <div class="col-lg">
-            <p>Email: <span class="personal-info">m.mufeed1996@gamail.com</span></p>
+            <p>Email: <span class="personal-info">{{email}}</span></p>
         </div>
     </div>
-    <div class="row">
+    <div *ngIf="dateOfBirth" class="row">
         <div class="col-lg">
-            <p>Date Of Birth: <span class="personal-info">12/5/2019</span></p>
+            <p>Date Of Birth: <span class="personal-info">{{dateOfBirth}}</span></p>
         </div>
     </div>
 </div>
@@ -117,6 +117,6 @@
             </mat-form-field>
         </div>
     </div>
-    <button mat-stroked-button color="primary" > Update </button>
+    <button mat-stroked-button (click)="submit()" color="primary" > Update </button>
 </form>
 </mat-card>

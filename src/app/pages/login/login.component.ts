@@ -38,9 +38,24 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('userPassword', loginResponse.userData.userPassword.toString());
           if (loginResponse.userData.birthDate !== null) {
             localStorage.setItem('birthDate', loginResponse.userData.birthDate.toString());
+          } else {
+            localStorage.setItem('birthDate', null);
           }
-          localStorage.setItem('gender', loginResponse.userData.gender.toString());
-          localStorage.setItem('city', loginResponse.userData.city.toString());
+          if (loginResponse.userData.gender !== null) {
+            localStorage.setItem('gender', loginResponse.userData.gender.toString());
+          } else {
+            localStorage.setItem('gender', null);
+          }
+          if (loginResponse.userData.gender !== null) {
+            localStorage.setItem('userAddress', loginResponse.userData.userAddress.toString());
+          } else {
+            localStorage.setItem('userAddress', null);
+          }
+          if (loginResponse.userData.gender !== null) {
+            localStorage.setItem('city', loginResponse.userData.city.toString());
+          } else {
+            localStorage.setItem('city', null);
+          }
           localStorage.setItem('userAddress', loginResponse.userData.userAddress.toString());
           localStorage.setItem('email', loginResponse.userData.email.toString());
           localStorage.setItem('position', loginResponse.userData.position.toString());

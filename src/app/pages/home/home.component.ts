@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Events } from './home.model';
 import { HomeServices } from './home.service';
+import { Router } from '@angular/router';
 
 export interface IImage {
   url: string | null;
@@ -31,7 +32,7 @@ export class HomeComponent implements OnInit {
     {  url: 'assets/images/7.jpg', caption: 'Opera Cairo House'},
     {  url: 'assets/images/8.jpg', caption: 'Opera Cairo House'},
   ];
-  constructor(private homeService: HomeServices) { }
+  constructor(private homeService: HomeServices, private router: Router) { }
 
   ngOnInit() {
     this.homeService.getAllEvents().then(
@@ -42,6 +43,9 @@ export class HomeComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+  goToEvent(event) {
+    this.router.navigate(['/reserveseat/' + event.id]);
   }
 
 }

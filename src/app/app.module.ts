@@ -29,6 +29,7 @@ import { EventsComponent } from './pages/operaManagement/events/events/events.co
 import { CreatEventComponent } from './pages/operaManagement/events/events/creat-event/creat-event.component';
 import { CancelEventComponent } from './pages/operaManagement/events/events/cancel-event/cancel-event.component';
 import { CreatehallsComponent } from './pages/operaManagement/createhalls/createhalls.component';
+import { ReservePlaceComponent } from './pages/reserve-place/reserve-place.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { CreatehallsComponent } from './pages/operaManagement/createhalls/create
     CreatEventComponent,
     CancelEventComponent,
     CreatehallsComponent,
+    ReservePlaceComponent,
   ],
   imports: [
     BrowserModule,

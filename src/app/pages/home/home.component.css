@@ -29,4 +29,5 @@ mat-grid-tile {
 .event-card {
     text-align: center;
     background-color: bisque;
+    cursor: pointer;
 }

@@ -32,7 +32,7 @@
         <td mat-cell *matCellDef="let element">
         <div class="admin-choice">
             <button mat-stroked-button (click)="CancelEvent(element)" style="margin-right: 10px;">Cancel Event</button>
-            <button mat-stroked-button style="margin-right: 10px; margin-left:10px">View Seats</button>
+            <button mat-stroked-button (click)="ViewSeats(element)" style="margin-right: 10px; margin-left:10px">View Seats</button>
         </div>
         </td>
         </ng-container>

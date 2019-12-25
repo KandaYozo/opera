@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { Events } from '../../../../home/home.model';
 import { HomeServices } from '../../../../home/home.service';
 import { CancelServices } from '../cancel-event/cancel-event.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cancel-event',
@@ -16,7 +17,7 @@ export class CancelEventComponent implements OnInit {
   events: Events[] = [];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(private eventService: HomeServices, private cancelServices: CancelServices) { }
+  constructor(private eventService: HomeServices, private cancelServices: CancelServices,  private router: Router) { }
 
   ngOnInit() {
     this.eventService.getAllEvents().then(
@@ -50,6 +51,9 @@ export class CancelEventComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+  ViewSeats(row) {
+    this.router.navigate(['/viewseats/' + row.id]);
   }
 
 }

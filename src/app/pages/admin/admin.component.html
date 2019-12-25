@@ -23,7 +23,7 @@
     <!-- Symbol Column -->
     <ng-container matColumnDef="birthDate">
       <th mat-header-cell *matHeaderCellDef> birth Date </th>
-      <td mat-cell *matCellDef="let element"> {{element.birthDate}} </td>
+      <td mat-cell *matCellDef="let element"> {{element?.birthDate || ____}} </td>
     </ng-container>
 
     <ng-container matColumnDef="email">
@@ -34,9 +34,9 @@
     <ng-container matColumnDef="userStatus">
       <th mat-header-cell *matHeaderCellDef> user Status </th>
       <td mat-cell *matCellDef="let element" [ngSwitch]="element.userStatus">
-        <p *ngSwitchCase='1'>authorized</p>
-        <p *ngSwitchCase='2'>waiting for auth </p>
-        <p *ngSwitchCase='3'> pending </p>
+        <p *ngSwitchCase='1'>Verified</p>
+        <p *ngSwitchCase='2'>Not Verified </p>
+        <p *ngSwitchCase='3'>Cancelled </p>
       </td>
     </ng-container>
 
@@ -44,12 +44,12 @@
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let element">
       <div class="admin-choice">
-        <button mat-stroked-button>Approve Authority</button>
+        <button mat-stroked-button *ngIf="element.userStatus != '1'">Approve Authority</button>
         <button mat-stroked-button style="margin-right: 10px; margin-left:10px">Remove</button>
-        <mat-radio-group [(ngModel)]="labelPosition">
-            <mat-radio-button class="example-margin" value='1' style="margin-right: 10px; margin-left:10px" checked>1</mat-radio-button>
-            <mat-radio-button class="example-margin" value='2' style="margin-right: 10px; margin-left:10px">2</mat-radio-button>
-            <mat-radio-button class="example-margin" value='3' style="margin-right: 10px; margin-left:10px">3</mat-radio-button>
+        <mat-radio-group [(ngModel)]="labelPosition" >
+            <mat-radio-button class="example-margin"  value='1' style="margin-right: 10px; margin-left:10px" checked>Verified</mat-radio-button>
+            <mat-radio-button class="example-margin"  value='2' style="margin-right: 10px; margin-left:10px">Not Verified</mat-radio-button>
+            <mat-radio-button class="example-margin"  value='3' style="margin-right: 10px; margin-left:10px">Cancelled</mat-radio-button>
         </mat-radio-group>
         <button mat-stroked-button style="margin-right: 10px; margin-left:10px">Change Authority</button>
       </div>

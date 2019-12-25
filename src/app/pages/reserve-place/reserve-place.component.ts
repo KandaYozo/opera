@@ -1,13 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HallService } from './reserve-place.service';
-
+import { MatTableDataSource, MatPaginator } from '@angular/material';
+export interface Seat {
+  id: number;
+  eventID: number;
+  userID: number;
+  reservedRow: number;
+  reservedColumn: number;
+}
 @Component({
   selector: 'app-reserve-place',
   templateUrl: './reserve-place.component.html',
   styleUrls: ['./reserve-place.component.css']
 })
 export class ReservePlaceComponent implements OnInit {
+
+  displayedColumns: string[] = [
+    'id',
+    'eventID',
+    'userID',
+    'reservedRow',
+    'reservedColumn',
+  ];
+  dataSource: MatTableDataSource<Seat>;
+  public seats: Seat[] = [];
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   hallName: string;
   rows: number;
@@ -40,6 +58,7 @@ export class ReservePlaceComponent implements OnInit {
           this.cols.colarray = Array(this.col).fill(0).map((x, i) => i);
           this.cols.check = Array(this.col).fill(0).map((x, i) => i);
           this.hallStatus = hallInformation[1][0].hallStatus;
+
         }
       },
       error => {
@@ -53,6 +72,9 @@ export class ReservePlaceComponent implements OnInit {
           this.rowss.check[Number(seat.reservedRow)] = 100;
           this.cols.check[Number(seat.reservedColumn)] = 100;
         }
+        this.seats = seatsInformation;
+        this.dataSource = new MatTableDataSource(this.seats);
+        this.dataSource.paginator = this.paginator;
       },
       error => {
         console.log(error);

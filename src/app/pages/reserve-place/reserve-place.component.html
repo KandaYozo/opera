@@ -1,9 +1,54 @@
+<div class="calss">
 <mat-card class="seats">
 <div *ngFor="let i of rowss.rowarray" class='seat-display'>
     <div *ngFor="let j of cols.colarray">
-        <img *ngIf = "rowss.check[i] == 100 && cols.check[j] == 100" (click)="reserve(i,j)" src="../../../assets/images/blue.jpg" style="highet:50px; width: 50px;">
-        <img *ngIf = "rowss.check[i] != 100 && cols.check[j] != 100" (click)="reserve(i,j)" src="../../../assets/images/seat.jpg" style="highet:50px; width: 50px;">
+        <img (click)="reserve(i,j)" src="../../../assets/images/seat.jpg" style="highet:50px; width: 50px;">
     </div>
 </div> 
+    
+</mat-card>
+</div>
+<hr>
+<mat-card class="seats">
+<mat-card>
+    <div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Seat </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="eventID">
+      <th mat-header-cell *matHeaderCellDef> eventID </th>
+      <td mat-cell *matCellDef="let element"> {{element.eventID}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="userID">
+      <th mat-header-cell *matHeaderCellDef> userID </th>
+      <td mat-cell *matCellDef="let element"> {{element.userID}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="reservedRow">
+      <th mat-header-cell *matHeaderCellDef> reservedRow </th>
+      <td mat-cell *matCellDef="let element"> {{element.reservedRow}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="reservedColumn">
+      <th mat-header-cell *matHeaderCellDef> reservedColumn </th>
+      <td mat-cell *matCellDef="let element"> {{element.reservedColumn}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+</mat-card>
+
     
 </mat-card>

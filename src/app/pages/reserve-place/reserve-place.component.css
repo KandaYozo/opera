@@ -3,4 +3,10 @@
     flex-direction: row;
 }
 
-.reserveInfo {}
+table {
+    width: 100%;
+}
+
+.calss {
+    text-align: center;
+}

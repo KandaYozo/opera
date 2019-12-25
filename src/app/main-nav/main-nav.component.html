@@ -15,12 +15,13 @@
       <a routerLink="/login" *ngIf="!userLogedIn" mat-button>Login</a>
       <a routerLink="/" *ngIf="userLogedIn" (click)="logout()" mat-button>LogOut</a>
       <a routerLink="/signup" *ngIf="!userLogedIn" mat-button>Sign Up</a>
-      <a routerLink="/admin" *ngIf="userLogedIn" mat-button>Manage Users</a>
-      <a routerLink="/events" *ngIf="userLogedIn" mat-button>Events Control</a>
+      <a routerLink="/admin" *ngIf="userLogedIn && position == '1'" mat-button>Manage Users</a>
+      <a routerLink="/events" *ngIf="userLogedIn && position == '2'" mat-button>Events Control</a>
+      <a routerLink="/createhall" *ngIf="userLogedIn && position == '2'" mat-button>Create Hall</a>
       <a routerLink="/profile" *ngIf="userLogedIn" mat-button><i class="material-icons">
                                             person
                                             </i></a>
-      <a routerLink="/contact" *ngIf="userLogedIn" routerLinkActive="active" mat-button>Contact Us</a>
+      <a routerLink="/contact"  routerLinkActive="active" mat-button>Contact Us</a>
     </div>
 
    
@@ -34,12 +35,13 @@
       <a routerLink="/login" *ngIf="!userLogedIn" mat-button>Login</a>
       <a routerLink="/" *ngIf="userLogedIn" (click)="logout()" mat-button>LogOut</a>
       <a routerLink="/signup" *ngIf="!userLogedIn" mat-button>Sign Up</a>
-      <a routerLink="/admin" *ngIf="userLogedIn" mat-button>Manage Users</a>
-      <a routerLink="/events" *ngIf="userLogedIn" mat-button>Events Control</a>
+      <a routerLink="/admin" *ngIf="userLogedIn && position == '1'" mat-button>Manage Users</a>
+      <a routerLink="/events" *ngIf="userLogedIn && position == '2'" mat-button>Events Control</a>
+      <a routerLink="/createhall" *ngIf="userLogedIn && position == '2'" mat-button>Create Hall</a>
       <a routerLink="/profile" *ngIf="userLogedIn" mat-button><i class="material-icons">
                                             person
                                             </i></a>
-      <a routerLink="/contact" *ngIf="userLogedIn" routerLinkActive="active" mat-button>Contact Us</a>
+      <a routerLink="/contact" routerLinkActive="active" mat-button>Contact Us</a>
       </div>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill style="background-image: url('../../../assets/images/bodyback.jpg');">

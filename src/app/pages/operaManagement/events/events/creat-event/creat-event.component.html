@@ -37,8 +37,17 @@
                 <mat-option  value="1">1</mat-option>
                 <mat-option  value="2">2</mat-option>
             </mat-select>
-            <mat-error *ngIf=" form.get('hallNumber').invalid">You must choose a gender</mat-error>
+            <mat-error *ngIf=" form.get('hallNumber').invalid">You must choose a Hall</mat-error>
             </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+        </div>
+        <div class="col-lg">
+        <button mat-stroked-button (click)="Create()" color="primary" class="create-bts" > Create </button>
+        </div>
+        <div class="col-lg">
         </div>
     </div>
 </form>

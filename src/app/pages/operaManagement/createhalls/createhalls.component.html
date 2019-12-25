@@ -1,0 +1,43 @@
+<mat-card class="head-card">
+<form [formGroup]="form" class="example-form">
+    <div class="row">
+        <div class="col-lg">
+            <mat-form-field appearance="outline" class="form-input">
+            <mat-label style='color:black;'>hall Name</mat-label>
+            <input matInput type="text" formControlName="hallName">
+            <mat-error *ngIf=" form.get('hallName').invalid">hall name is invalid
+            </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <mat-form-field appearance="outline" class="form-input">
+            <mat-label style='color:black;'>Number Of Rows</mat-label>
+            <input matInput type="text" formControlName="numberRows">
+            <mat-error *ngIf=" form.get('numberRows').invalid">Rows Number is invalid
+            </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-lg">
+        </div>
+        <div class="col-lg">
+            <mat-form-field appearance="outline" class="form-input">
+            <mat-label style='color:black;'>Number Of Columns</mat-label>
+            <input matInput type="text" formControlName="numberColumns">
+            <mat-error *ngIf=" form.get('numberColumns').invalid">Columns Number is invalid
+            </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+        </div>
+        <div class="col-lg">
+        <button mat-stroked-button (click)="Create()" color="primary" class="create-bts" > Create </button>
+        </div>
+        <div class="col-lg">
+        </div>
+    </div>
+</form>
+</mat-card>

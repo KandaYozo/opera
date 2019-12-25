@@ -8,10 +8,13 @@ import { Router } from '@angular/router';
 })
 export class MainNavComponent  implements OnInit  {
   userLogedIn = false;
+  position = '';
   constructor(private router: Router) {}
   ngOnInit() {
-    if (localStorage.getItem('userStatus') !== null) {
+    if (localStorage.getItem('id') !== null) {
         this.userLogedIn = true;
+        this.position = localStorage.getItem('position');
+        console.log(this.position);
     }
   }
   logout() {

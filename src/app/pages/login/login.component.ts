@@ -61,8 +61,6 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('position', loginResponse.userData.position.toString());
           localStorage.setItem('userStatus', loginResponse.userData.userStatus.toString());
           this.router.navigate(['/']);
-          location.reload();
-          this.router.navigate(['/']);
         }
       },
       error => {

@@ -9,6 +9,7 @@ import { ProfileComponent } from '../app/pages/profile/profile.component';
 import { EventsComponent } from '../app/pages/operaManagement/events/events/events.component';
 import { CreatEventComponent } from '../app/pages/operaManagement/events/events/creat-event/creat-event.component';
 import { CancelEventComponent } from '../app/pages/operaManagement/events/events/cancel-event/cancel-event.component';
+import { CreatehallsComponent } from '../app/pages/operaManagement/createhalls/createhalls.component';
 
 const routes: Routes = [
   { path: 'contact', component: ContactComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'events', component: EventsComponent },
   { path: 'events/createevent', component: CreatEventComponent },
   { path: 'events/cancelevent', component: CancelEventComponent },
+  { path: 'createhall', component: CreatehallsComponent },
   { path: '', component: HomeComponent },
 ];
 

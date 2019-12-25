@@ -3,10 +3,18 @@
     flex-direction: row;
 }
 
+.seats {
+    margin-top: 15px;
+}
+
 table {
     width: 100%;
 }
 
 .calss {
     text-align: center;
+}
+
+.seat-image {
+    cursor: pointer;
 }

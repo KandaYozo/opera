@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HallService } from './reserve-place.service';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
@@ -14,7 +14,7 @@ export interface Seat {
   templateUrl: './reserve-place.component.html',
   styleUrls: ['./reserve-place.component.css']
 })
-export class ReservePlaceComponent implements OnInit {
+export class ReservePlaceComponent implements OnInit, OnDestroy {
 
   displayedColumns: string[] = [
     'id',
@@ -26,7 +26,7 @@ export class ReservePlaceComponent implements OnInit {
   dataSource: MatTableDataSource<Seat>;
   public seats: Seat[] = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-
+  timer: any;
   hallName: string;
   rows: number;
   col: number;
@@ -80,6 +80,23 @@ export class ReservePlaceComponent implements OnInit {
         console.log(error);
       }
     );
+    this.timer = setInterval(() => {
+      this.hallservice.getReservedSeats(this.urlparameter).then(
+        (seatsInformation: any) => {
+          console.log(seatsInformation);
+          for (const seat of seatsInformation) {
+            this.rowss.check[Number(seat.reservedRow)] = 100;
+            this.cols.check[Number(seat.reservedColumn)] = 100;
+          }
+          this.seats = seatsInformation;
+          this.dataSource = new MatTableDataSource(this.seats);
+          this.dataSource.paginator = this.paginator;
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }, 5 * 1000);
 
   }
   reserve(i: number , j: number) {
@@ -96,6 +113,11 @@ export class ReservePlaceComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+  ngOnDestroy() {
+    if (this.timer) {
+      clearInterval(this.timer);
+    }
   }
 
 }

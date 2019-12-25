@@ -54,7 +54,7 @@
       <td mat-cell *matCellDef="let element">
       <div class="admin-choice">
         <button mat-stroked-button (click)="Verify(element)" *ngIf="element.userStatus != '1'">Verify User</button>
-        <button mat-stroked-button style="margin-right: 10px; margin-left:10px">Remove</button>
+        <button mat-stroked-button (click)="removeUser(element)" style="margin-right: 10px; margin-left:10px">Remove</button>
         <mat-form-field>
           <mat-label>Position</mat-label>
           <select matNativeControl [formControl]="selectFormControl">

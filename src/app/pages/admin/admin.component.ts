@@ -62,7 +62,6 @@ export class AdminComponent implements OnInit {
     );
   }
   upDatePosiion(row) {
-    console.log(row.id);
     this.adminServices.changePosition(row.id.toString(), this.selectFormControl.value.toString()).then(
       (positionResponse: any) => {
         alert('Verified Successfully');
@@ -72,6 +71,20 @@ export class AdminComponent implements OnInit {
         console.log(error);
       }
     );
-
+  }
+  removeUser(row) {
+    this.adminServices.removeUser(row.id.toString()).then(
+      (removeResponse: any) => {
+        if (removeResponse[0].response === 0) {
+          alert('Removed Successfully');
+          location.reload();
+        } else {
+          alert('Failed To Remove User');
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }

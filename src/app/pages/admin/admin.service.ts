@@ -27,4 +27,11 @@ export class AdminServices {
       return this.http
           .post<any>('http://localhost:3000/user/changePosition', obj).toPromise();
     }
+    removeUser(userID: string) {
+      const obj = {
+        userID
+      };
+      return this.http
+          .post<any>('http://localhost:3000/user/removeUser', obj).toPromise();
+    }
 }

@@ -1,3 +1,9 @@
-<mat-card>
+<mat-card class="seats">
+<div *ngFor="let i of rowss.rowarray" class='seat-display'>
+    <div *ngFor="let j of cols.colarray">
+        <img *ngIf = "rowss.check[i] == 100 && cols.check[j] == 100" (click)="reserve(i,j)" src="../../../assets/images/blue.jpg" style="highet:50px; width: 50px;">
+        <img *ngIf = "rowss.check[i] != 100 && cols.check[j] != 100" (click)="reserve(i,j)" src="../../../assets/images/seat.jpg" style="highet:50px; width: 50px;">
+    </div>
+</div> 
     
 </mat-card>

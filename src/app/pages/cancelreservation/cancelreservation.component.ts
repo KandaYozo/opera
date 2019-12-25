@@ -47,7 +47,7 @@ export class CancelreservationComponent implements OnInit {
     this.cancel.CancelEvents(eventID, userID).then(
       (usersInformation: any) => {
         console.log(usersInformation);
-        if (usersInformation[0].response) {
+        if (usersInformation[0].response === 0) {
           alert('SuccessFully Canceled');
           location.reload();
         } else {

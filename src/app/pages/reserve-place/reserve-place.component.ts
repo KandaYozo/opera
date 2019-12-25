@@ -12,6 +12,8 @@ export class ReservePlaceComponent implements OnInit {
 
   ngOnInit() {
     const urlparameter = this.route.snapshot.paramMap.get('id');
+    const urlparameter2 = this.route.snapshot.paramMap.get('hallid');
+    
   }
 
 }

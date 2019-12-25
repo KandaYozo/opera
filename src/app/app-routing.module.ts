@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'events/createevent', component: CreatEventComponent },
   { path: 'events/cancelevent', component: CancelEventComponent },
   { path: 'createhall', component: CreatehallsComponent },
-  { path: 'reserveseat/:id', component: ReservePlaceComponent },
+  { path: 'reserveseat/:id/:hallid', component: ReservePlaceComponent },
   { path: 'viewseats/:id', component: ViewSeatsComponent },
   { path: '', component: HomeComponent },
 ];

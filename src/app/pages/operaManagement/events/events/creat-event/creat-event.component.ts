@@ -36,13 +36,15 @@ export class CreatEventComponent implements OnInit {
   }
   Create() {
     let time  = moment.tz(this.form.get('eventTiming').value, 'Africa/Cairo');
-    time = time.format();
+    time = moment(time).format('YYYY-MM-DD');
+    time += ' ' + '12:10:12';
+    console.log(time);
     if (!this.form.invalid) {
       this.cevent.createNewEvent(
         this.form.get('eventName').value.toString(),
         this.form.get('eventDescription').value.toString(),
         this.form.get('eventPoster').value.toString(),
-        null,
+        time,
         this.form.get('hallNumber').value.toString()
       ).then((eventResponse: any) => {
           if (eventResponse[0].response === 0) {

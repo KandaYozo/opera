@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
     );
   }
   goToEvent(event) {
-    this.router.navigate(['/reserveseat/' + event.id]);
+    this.router.navigate(['/reserveseat/' + event.id, event.hallNumber]);
   }
 
 }

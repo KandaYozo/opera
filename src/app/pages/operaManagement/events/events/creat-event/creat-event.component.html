@@ -5,7 +5,7 @@
             <mat-form-field appearance="outline" class="form-input">
             <mat-label style='color:black;'>Event Name</mat-label>
             <input matInput type="text" formControlName="eventName">
-            <mat-error *ngIf=" form.get('eventName').invalid">user name is invalid
+            <mat-error *ngIf=" form.get('eventName').invalid">Event name is invalid
             </mat-error>
             </mat-form-field>
         </div>
@@ -24,8 +24,8 @@
         <div class="col-lg">
             <mat-form-field class="form-input">
             <mat-label style='color:black;'>Event Description</mat-label>
-            <textarea matInput placeholder="Leave a comment">{{eventDescription}}</textarea>
-            <mat-error *ngIf=" form.get('eventDescription').invalid">user name is invalid
+            <textarea matInput formControlName="eventDescription" placeholder="Leave a comment"></textarea>
+            <mat-error *ngIf=" form.get('eventDescription').invalid">Event Description is invalid
             </mat-error>
             </mat-form-field>
         </div>
@@ -33,12 +33,24 @@
             <mat-form-field appearance="outline" class="form-input">
             <mat-label style='color:black;'>Hall</mat-label>
             <mat-select matInput formControlName="hallNumber" disableOptionCentering panelClass="select-margin">
-                <mat-option >None</mat-option>
-                <mat-option  value="1">1</mat-option>
-                <mat-option  value="2">2</mat-option>
+                <mat-option *ngFor="let hall of halls" value="{{hall.id}}">{{hall.hallName}}</mat-option>
             </mat-select>
             <mat-error *ngIf=" form.get('hallNumber').invalid">You must choose a Hall</mat-error>
             </mat-form-field>
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-lg">
+        </div>
+        <div class="col-lg">
+            <mat-form-field appearance="outline" class="form-input">
+            <mat-label style='color:black;'>Event Poster Link</mat-label>
+            <input matInput type="text" formControlName="eventPoster">
+            <mat-error *ngIf=" form.get('eventPoster').invalid">Poster Link is invalid
+            </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-lg">
         </div>
     </div>
     <div class="row">

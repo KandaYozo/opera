@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-nav',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainNavComponent  implements OnInit  {
   userLogedIn = false;
-  constructor() {}
+  constructor(private router: Router) {}
   ngOnInit() {
     if (localStorage.getItem('userStatus') !== null) {
         this.userLogedIn = true;
@@ -15,7 +16,7 @@ export class MainNavComponent  implements OnInit  {
   }
   logout() {
     localStorage.clear();
-    location.reload();
+    this.router.navigate(['/']);
   }
 
 }

@@ -17,5 +17,4 @@ export interface UsersData {
     position: number;
     userStatus: number;
     title: string;
-
 }

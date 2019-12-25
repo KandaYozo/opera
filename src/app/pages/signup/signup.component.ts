@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { mimeType } from './mime-type.validator';
 import { MAT_DATE_LOCALE } from '@angular/material';
 import { SignupService } from './signup.service';
-import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -40,7 +40,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   selectedCityIndex = '';
   // Form
   form: FormGroup;
-  constructor( private signup: SignupService) { }
+  constructor( private signup: SignupService, private router: Router) { }
   onChangeCountry(countryValue) {
     this.stateArray = this.countryArray[countryValue].States;
     this.cityArray = this.stateArray[0].Cities;
@@ -83,17 +83,13 @@ export class SignupComponent implements OnInit, OnDestroy {
       email: new FormControl(null, { validators: [Validators.required, Validators.email] }),
       password: new FormControl(null, { validators: [Validators.required, Validators.minLength(8)] }),
       gender: new FormControl(null, { validators: [Validators.required] }),
-      contactNumber: new FormControl(null, { validators: [Validators.pattern('\\+?[0-9\-]+')] }),
       country: new FormControl(null),
       state: new FormControl(null),
       city: new FormControl(null),
       street: new FormControl(null),
       postalCode: new FormControl(null),
-      pan: new FormControl(null, { validators: [Validators.pattern('[0-9]{16,20}')] }),
       // tslint:disable-next-line: max-line-length
-      nationalID: new FormControl(null, { validators: [Validators.pattern('(2|3)([0-9])([0-9])((0)([1-9])|(1)([0-2]))((0)([1-9])|(1)([0-9])|(2)([0-9])|(3)(0|1))(01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)([0-9]){4}([0-9])')] }),
       jobID: new FormControl(null, { validators: [Validators.required] }),
-      photo: new FormControl(null, { asyncValidators: [mimeType] }),
     });
 
     this.getCountries();
@@ -106,6 +102,48 @@ export class SignupComponent implements OnInit, OnDestroy {
           console.log(error)
       );
   }
+  onKeydown(event) {
+    if ((event.keyCode >= 8 && event.keyCode <= 46 && event.keyCode !== 32) || (event.keyCode >= 96 && event.keyCode <= 105)) {
+      return;
+    }
+
+    if (event.keyCode > 31 && (event.keyCode < 48 || event.keyCode > 57)) {
+        return;
+      } else {
+      return !event;
+    }
+  }
+  signUp() {
+    if (!this.form.invalid) {
+      console.log('here');
+      return false;
+    } else {
+      this.signup.sigUp(
+        this.form.get('firstName').value,
+        this.form.get('lastName').value,
+        this.form.get('username').value,
+        this.form.get('dateOfBirth').value,
+        this.form.get('gender').value,
+        this.form.get('city').value,
+        null,
+        this.form.get('password').value,
+        this.form.get('email').value,
+        this.form.get('jobID').value,
+      ).then(
+        (signUpRes: any) => {
+          if (signUpRes[0].response === 0) {
+            alert('user has been succefully created');
+            this.router.navigate(['/login']);
+          } else {
+            alert('Failed To register, Try changing your user information');
+          }
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+}
 
   ngOnDestroy() {
   }

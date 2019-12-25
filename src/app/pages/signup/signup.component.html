@@ -2,7 +2,7 @@
 <mat-card class="form-container card-border" style="margin-bottom: 50px;">
   <div class="form-logo"></div>
 
-  <form [formGroup]="form" (submit)="signup()" [hidden]="isLoading" dir="'ltr'">
+  <form [formGroup]="form" dir="'ltr'">
 
     <div class="form-design">
       <p > Sign Up </p>
@@ -67,12 +67,11 @@
       <mat-error *ngIf=" form.get('gender').invalid">You must choose a gender</mat-error>
     </mat-form-field>
 
-    <!--<mat-form-field appearance="outline">
-      <mat-label >Contact Number</mat-label>
-      <input matInput type="tel" formControlName="contactNumber" [maxLength]="11" (keydown)="onKeydown($event)">
-      <mat-error *ngIf=" form.get('contactNumber').invalid">Please enter your contact number</mat-error>
-      <mat-icon matSuffix>phone</mat-icon>
-    </mat-form-field> -->
+    <mat-form-field appearance="outline">
+      <mat-label >Position</mat-label>
+      <input matInput type="tel" formControlName="jobID" [maxLength]="1" (keydown)="onKeydown($event)">
+      <mat-error *ngIf=" form.get('jobID').invalid">Please enter your Position</mat-error>
+    </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label >Country</mat-label>
@@ -115,7 +114,7 @@
         <a [routerLink]="['/']" > Already a member? </a>
       </div>
       <div class="col button-container">
-        <button mat-stroked-button color="primary"  class="float-right"> Sign Up </button>
+        <button mat-stroked-button color="primary" (click)="signUp()" class="float-right"> Sign Up </button>
       </div>
     </div>
   </form>

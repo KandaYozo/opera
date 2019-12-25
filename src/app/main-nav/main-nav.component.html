@@ -12,14 +12,15 @@
     <div fxShow="true" fxHide.lt-md="true">
       <!-- The following menu items will be hidden on both SM and XS screen sizes -->
       <a routerLink="/" mat-button>Home</a>
-      <a routerLink="/login" mat-button>Login</a>
-      <a routerLink="/signup" mat-button>Sign Up</a>
-      <a routerLink="/admin" mat-button>Manage Users</a>
-      <a routerLink="/events" mat-button>Events Control</a>
-      <a routerLink="/profile" mat-button><i class="material-icons">
+      <a routerLink="/login" *ngIf="!userLogedIn" mat-button>Login</a>
+      <a routerLink="/" *ngIf="userLogedIn" (click)="logout()" mat-button>LogOut</a>
+      <a routerLink="/signup" *ngIf="!userLogedIn" mat-button>Sign Up</a>
+      <a routerLink="/admin" *ngIf="userLogedIn" mat-button>Manage Users</a>
+      <a routerLink="/events" *ngIf="userLogedIn" mat-button>Events Control</a>
+      <a routerLink="/profile" *ngIf="userLogedIn" mat-button><i class="material-icons">
                                             person
                                             </i></a>
-      <a routerLink="/contact"  routerLinkActive="active" mat-button>Contact Us</a>
+      <a routerLink="/contact" *ngIf="userLogedIn" routerLinkActive="active" mat-button>Contact Us</a>
     </div>
 
    
@@ -29,12 +30,16 @@
     <mat-sidenav #sidenav fxLayout="column">
       <div fxLayout="column">
         <!-- <a (click)="sidenav.toggle()" href="#" mat-button>Close</a> -->
-        <a href="#" mat-button>Login</a>
-        <a href="#" mat-button>Sign Up</a>
-        <a href="#" mat-button>History</a>
-        <a href="#" mat-button>Menu Item 4</a>
-        <a href="#" mat-button>Menu Item 5</a>
-        <a href="#" mat-button>Menu Item 6</a>
+      <a routerLink="/" mat-button>Home</a>
+      <a routerLink="/login" *ngIf="!userLogedIn" mat-button>Login</a>
+      <a routerLink="/" *ngIf="userLogedIn" (click)="logout()" mat-button>LogOut</a>
+      <a routerLink="/signup" *ngIf="!userLogedIn" mat-button>Sign Up</a>
+      <a routerLink="/admin" *ngIf="userLogedIn" mat-button>Manage Users</a>
+      <a routerLink="/events" *ngIf="userLogedIn" mat-button>Events Control</a>
+      <a routerLink="/profile" *ngIf="userLogedIn" mat-button><i class="material-icons">
+                                            person
+                                            </i></a>
+      <a routerLink="/contact" *ngIf="userLogedIn" routerLinkActive="active" mat-button>Contact Us</a>
       </div>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill style="background-image: url('../../../assets/images/bodyback.jpg');">

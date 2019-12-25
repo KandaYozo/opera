@@ -8,10 +8,9 @@
     </div>
 
     <mat-form-field appearance="outline">
-      <mat-label >Email</mat-label>
-      <input matInput name="emailOrPAN" ngModel #emailOrPANInput="ngModel" required>
-      <mat-hint align="end">{{emailOrPANInput.value?.length || 0}}/20</mat-hint>
-      <mat-error *ngIf="emailOrPANInput.invalid"> Wrong Email 
+      <mat-label >User Name</mat-label>
+      <input matInput name="UserName" ngModel #userName="ngModel" required>
+      <mat-error *ngIf="userName.invalid"> Wrong User Name 
       </mat-error>
       <mat-icon matSuffix>email</mat-icon>
     </mat-form-field>

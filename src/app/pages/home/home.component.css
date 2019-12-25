@@ -25,3 +25,8 @@ mat-grid-tile {
 .space {
     margin: 10px 10px 10px 10px;
 }
+
+.event-card {
+    text-align: center;
+    background-color: bisque;
+}

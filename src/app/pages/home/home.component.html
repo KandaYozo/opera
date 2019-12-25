@@ -10,11 +10,16 @@
     </slideshow>
 </mat-card>
 <mat-card class="head-card" style="margin-top:15px">
-    <mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile><button mat-stroked-button class="nav-pages"><p style="background-color: coral;">View Events<p></button></mat-grid-tile>
-    <mat-grid-tile><button mat-stroked-button class="nav-pages"><p style="background-color: coral;">View Events<p></button></mat-grid-tile>
-    <mat-grid-tile><button mat-stroked-button class="nav-pages"><p style="background-color: coral;">View Events<p></button></mat-grid-tile>
-    <mat-grid-tile><button mat-stroked-button class="nav-pages"><p style="background-color: coral;">View Events<p></button></mat-grid-tile>
-    </mat-grid-list>
+        <div fxLayout.xs="column" fxLayout="row wrap" fxLayoutGap="10px" ngClass.gt-xs="ml-10">
+        <mat-card class="event-card" fxFlex.sm="0 1 calc(50%-10px)" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(25%-10px)" *ngFor="let event of events">
+            <mat-card-title>{{event.eventName}}</mat-card-title>
+            <hr>
+            <img mat-card-image src="{{event.eventPoster}}" class="image">
+            <hr>
+            <mat-card-content>{{event.eventDescription}}</mat-card-content>
+            <hr>
+            <mat-card-actions>{{event.eventStatus}}</mat-card-actions>
+        </mat-card>
+        </div>
 </mat-card>
 </mat-card>

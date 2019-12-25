@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Events } from './home.model';
+import { HomeServices } from './home.service';
 
 export interface IImage {
   url: string | null;
@@ -18,6 +20,7 @@ export interface IImage {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  public events: Events[] = [];
   imageUrls: (string | IImage)[] = [
     {  url: 'assets/images/1.jpg', caption: 'Opera Cairo House'},
     {  url: 'assets/images/2.jpg', caption: 'Opera Cairo House'},
@@ -28,9 +31,17 @@ export class HomeComponent implements OnInit {
     {  url: 'assets/images/7.jpg', caption: 'Opera Cairo House'},
     {  url: 'assets/images/8.jpg', caption: 'Opera Cairo House'},
   ];
-  constructor() { }
+  constructor(private homeService: HomeServices) { }
 
   ngOnInit() {
+    this.homeService.getAllEvents().then(
+      (eventInformation: Events[]) => {
+        this.events = eventInformation;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
 }

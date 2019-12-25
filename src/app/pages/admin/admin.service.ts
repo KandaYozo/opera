@@ -19,4 +19,12 @@ export class AdminServices {
       return this.http
           .post<any>('http://localhost:3000/user/verify', obj).toPromise();
     }
+    changePosition(id: string, position: string) {
+      const obj = {
+        id,
+        position
+      };
+      return this.http
+          .post<any>('http://localhost:3000/user/changePosition', obj).toPromise();
+    }
 }

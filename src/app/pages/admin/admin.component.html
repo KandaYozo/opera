@@ -40,18 +40,30 @@
       </td>
     </ng-container>
 
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> user poisiton </th>
+      <td mat-cell *matCellDef="let element" [ngSwitch]="element.position">
+        <p *ngSwitchCase='1'>Administrator</p>
+        <p *ngSwitchCase='2'>Management </p>
+        <p *ngSwitchCase='3'>Customer </p>
+      </td>
+    </ng-container>
+
     <ng-container matColumnDef="choice">
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let element">
       <div class="admin-choice">
         <button mat-stroked-button (click)="Verify(element)" *ngIf="element.userStatus != '1'">Verify User</button>
         <button mat-stroked-button style="margin-right: 10px; margin-left:10px">Remove</button>
-        <mat-radio-group [(ngModel)]="labelPosition" >
-            <mat-radio-button class="example-margin"  value='1' style="margin-right: 10px; margin-left:10px" checked>Verified</mat-radio-button>
-            <mat-radio-button class="example-margin"  value='2' style="margin-right: 10px; margin-left:10px">Not Verified</mat-radio-button>
-            <mat-radio-button class="example-margin"  value='3' style="margin-right: 10px; margin-left:10px">Cancelled</mat-radio-button>
-        </mat-radio-group>
-        <button mat-stroked-button style="margin-right: 10px; margin-left:10px">Change Authority</button>
+        <mat-form-field>
+          <mat-label>Position</mat-label>
+          <select matNativeControl [formControl]="selectFormControl">
+            <option value="1">Administrator</option>
+            <option value="2">Management</option>
+            <option value="3">Customer</option>
+          </select>
+        </mat-form-field>
+        <button mat-stroked-button (click)="upDatePosiion(element)" style="margin-right: 10px; margin-left:10px">Change Authority</button>
       </div>
       </td>
     </ng-container>

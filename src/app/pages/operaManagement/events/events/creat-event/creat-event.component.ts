@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { CreateEventService } from './creare-event.service';
 import { Halls } from './event.model';
+import * as moment from 'moment-timezone';
 
 @Component({
   selector: 'app-creat-event',
@@ -34,6 +35,8 @@ export class CreatEventComponent implements OnInit {
     });
   }
   Create() {
+    let time  = moment.tz(this.form.get('eventTiming').value, 'Africa/Cairo');
+    time = time.format();
     if (!this.form.invalid) {
       this.cevent.createNewEvent(
         this.form.get('eventName').value.toString(),

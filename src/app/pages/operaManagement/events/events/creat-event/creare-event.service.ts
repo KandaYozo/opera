@@ -12,12 +12,13 @@ export class CreateEventService {
         return this.http
           .post<Halls[]>('http://localhost:3000/halls/getAvailable', null).toPromise();
     }
-    createNewEvent(eventName: string, eventDescription: string, eventPoster: string, eventTiming = null, hallNumber: string) {
+    createNewEvent(eventName: string, eventDescription: string, eventPoster: string, eventTiming= null, hallNumber: string) {
+        console.log(eventTiming);
         const obj = {
             eventName,
             eventDescription,
             eventPoster,
-            eventTiming:  null,
+            eventTiming,
             hallNumber,
         };
         return this.http
